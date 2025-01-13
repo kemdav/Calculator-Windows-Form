@@ -39,7 +39,6 @@
             Button_3 = new Button();
             Button_AC = new Button();
             Button_ChangeSign = new Button();
-            Button_Percent = new Button();
             Button_0 = new Button();
             Button_Period = new Button();
             Button_Undo = new Button();
@@ -169,16 +168,6 @@
             Button_ChangeSign.Text = "+/-";
             Button_ChangeSign.UseVisualStyleBackColor = true;
             // 
-            // Button_Percent
-            // 
-            Button_Percent.Location = new Point(196, 176);
-            Button_Percent.Name = "Button_Percent";
-            Button_Percent.Size = new Size(75, 67);
-            Button_Percent.TabIndex = 12;
-            Button_Percent.Text = "%";
-            Button_Percent.UseVisualStyleBackColor = true;
-            Button_Percent.Click += Button_Percent_Click;
-            // 
             // Button_0
             // 
             Button_0.Location = new Point(104, 468);
@@ -210,7 +199,7 @@
             // 
             // Button_Divide
             // 
-            Button_Divide.Location = new Point(293, 176);
+            Button_Divide.Location = new Point(196, 176);
             Button_Divide.Name = "Button_Divide";
             Button_Divide.Size = new Size(75, 67);
             Button_Divide.TabIndex = 16;
@@ -221,7 +210,7 @@
             // 
             // Button_Multiply
             // 
-            Button_Multiply.Location = new Point(293, 249);
+            Button_Multiply.Location = new Point(293, 176);
             Button_Multiply.Name = "Button_Multiply";
             Button_Multiply.Size = new Size(75, 67);
             Button_Multiply.TabIndex = 17;
@@ -231,7 +220,7 @@
             // 
             // Button_Subtract
             // 
-            Button_Subtract.Location = new Point(293, 322);
+            Button_Subtract.Location = new Point(293, 249);
             Button_Subtract.Name = "Button_Subtract";
             Button_Subtract.Size = new Size(75, 67);
             Button_Subtract.TabIndex = 18;
@@ -241,7 +230,7 @@
             // 
             // Button_Addition
             // 
-            Button_Addition.Location = new Point(293, 395);
+            Button_Addition.Location = new Point(293, 322);
             Button_Addition.Name = "Button_Addition";
             Button_Addition.Size = new Size(75, 67);
             Button_Addition.TabIndex = 19;
@@ -252,9 +241,9 @@
             // 
             // Button_Equals
             // 
-            Button_Equals.Location = new Point(293, 468);
+            Button_Equals.Location = new Point(293, 395);
             Button_Equals.Name = "Button_Equals";
-            Button_Equals.Size = new Size(75, 67);
+            Button_Equals.Size = new Size(75, 140);
             Button_Equals.TabIndex = 20;
             Button_Equals.Text = "=";
             Button_Equals.UseVisualStyleBackColor = true;
@@ -264,6 +253,7 @@
             // 
             panel1.BackColor = Color.FromArgb(192, 0, 192);
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(Button_Equals);
             panel1.Controls.Add(Output);
             panel1.Controls.Add(Input);
             panel1.Controls.Add(Minimize_Button);
@@ -273,7 +263,6 @@
             panel1.Controls.Add(Button_Subtract);
             panel1.Controls.Add(Button_AC);
             panel1.Controls.Add(Button_ChangeSign);
-            panel1.Controls.Add(Button_Percent);
             panel1.Controls.Add(Button_Addition);
             panel1.Controls.Add(Button_1);
             panel1.Controls.Add(Button_2);
@@ -343,7 +332,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             ClientSize = new Size(380, 547);
-            Controls.Add(Button_Equals);
             Controls.Add(Button_Undo);
             Controls.Add(Button_Period);
             Controls.Add(Button_0);
@@ -372,7 +360,6 @@
         private Button Button_3;
         private Button Button_AC;
         private Button Button_ChangeSign;
-        private Button Button_Percent;
         private Button Button_0;
         private Button Button_Period;
         private Button Button_Undo;

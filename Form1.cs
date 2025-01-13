@@ -80,61 +80,111 @@ namespace Calculator
 
         }
 
+
         private void Button_1_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "1";
             Program.currentNumber += "1";
         }
 
         private void Button_2_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "2";
             Program.currentNumber += "2";
         }
 
         private void Button_3_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "3";
             Program.currentNumber += "3";
         }
 
         private void Button_4_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "4";
             Program.currentNumber += "4";
         }
 
         private void Button_5_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "5";
             Program.currentNumber += "5";
         }
 
         private void Button_6_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "6";
             Program.currentNumber += "6";
         }
 
         private void Button_8_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "8";
             Program.currentNumber += "8";
         }
         private void Button_7_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "7";
             Program.currentNumber += "7";
         }
 
         private void Button_9_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                Program.currentNumber = "";
+                Input.Text = "";
+            }
             Input.Text += "9";
             Program.currentNumber += "9";
         }
 
         private void Button_0_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "0")
+            {
+                return;
+            }
             Input.Text += "0";
             Program.currentNumber += "0";
         }
