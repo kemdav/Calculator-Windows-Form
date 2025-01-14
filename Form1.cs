@@ -12,27 +12,6 @@ namespace Calculator
             InitializeComponent();        
         }
 
-        private void Output_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private bool isDragging = false;
         private Point dragStartMousePos; // Renamed for clarity
         private Point dragStartFormPos; // Renamed for clarity
@@ -70,16 +49,6 @@ namespace Calculator
         private void Minimize_Button_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-
-        private void Output_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Input_Click(object sender, EventArgs e)
-        {
-
         }
 
 

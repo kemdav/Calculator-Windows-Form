@@ -351,7 +351,6 @@
             Output.Size = new Size(356, 64);
             Output.TabIndex = 22;
             Output.TextAlign = ContentAlignment.BottomRight;
-            Output.Click += Output_Click;
             // 
             // Input
             // 
@@ -363,7 +362,6 @@
             Input.Size = new Size(356, 53);
             Input.TabIndex = 21;
             Input.TextAlign = ContentAlignment.BottomRight;
-            Input.Click += Input_Click;
             // 
             // Minimize_Button
             // 
@@ -403,7 +401,6 @@
             RightToLeftLayout = true;
             ShowIcon = false;
             SizeGripStyle = SizeGripStyle.Show;
-            Load += Form1_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
