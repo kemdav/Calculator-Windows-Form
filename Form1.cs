@@ -379,12 +379,17 @@ namespace Calculator
             {
                 return;
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             if (Program.currentNumber == "")
             {
                 Program.currentNumber = "0.";
                 Input.Text = "0.";
                 return;
             }
+
             Program.currentNumber += ".";
             Input.Text += ".";
         }
