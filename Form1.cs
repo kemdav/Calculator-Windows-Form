@@ -1,4 +1,6 @@
 using System.Buffers;
+using System.Windows.Forms;
+
 
 namespace Calculator
 {
@@ -7,7 +9,7 @@ namespace Calculator
 
         public Main_Window()
         {
-            InitializeComponent();
+            InitializeComponent();        
         }
 
         private void Output_TextChanged(object sender, EventArgs e)
@@ -88,6 +90,10 @@ namespace Calculator
                 Program.currentNumber = "";
                 Input.Text = "";
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             Input.Text += "1";
             Program.currentNumber += "1";
         }
@@ -98,6 +104,10 @@ namespace Calculator
             {
                 Program.currentNumber = "";
                 Input.Text = "";
+            }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
             }
             Input.Text += "2";
             Program.currentNumber += "2";
@@ -110,6 +120,10 @@ namespace Calculator
                 Program.currentNumber = "";
                 Input.Text = "";
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             Input.Text += "3";
             Program.currentNumber += "3";
         }
@@ -120,6 +134,10 @@ namespace Calculator
             {
                 Program.currentNumber = "";
                 Input.Text = "";
+            }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
             }
             Input.Text += "4";
             Program.currentNumber += "4";
@@ -132,6 +150,10 @@ namespace Calculator
                 Program.currentNumber = "";
                 Input.Text = "";
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             Input.Text += "5";
             Program.currentNumber += "5";
         }
@@ -142,6 +164,10 @@ namespace Calculator
             {
                 Program.currentNumber = "";
                 Input.Text = "";
+            }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
             }
             Input.Text += "6";
             Program.currentNumber += "6";
@@ -154,6 +180,10 @@ namespace Calculator
                 Program.currentNumber = "";
                 Input.Text = "";
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             Input.Text += "8";
             Program.currentNumber += "8";
         }
@@ -163,6 +193,10 @@ namespace Calculator
             {
                 Program.currentNumber = "";
                 Input.Text = "";
+            }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
             }
             Input.Text += "7";
             Program.currentNumber += "7";
@@ -175,6 +209,10 @@ namespace Calculator
                 Program.currentNumber = "";
                 Input.Text = "";
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             Input.Text += "9";
             Program.currentNumber += "9";
         }
@@ -185,67 +223,123 @@ namespace Calculator
             {
                 return;
             }
+            if (Output.Text != "")
+            {
+                ClearCalculator();
+            }
             Input.Text += "0";
             Program.currentNumber += "0";
         }
 
         private void Button_Addition_Click(object sender, EventArgs e)
         {
+            if (Output.Text != "")
+            {
+                ContinueOperation();
+            }
             if (Program.currentNumber == "")
             {
                 return;
             }
             Program.numbers.Add(double.Parse(Program.currentNumber));
-            Input.Text += "+";
+            Input.Text += " + ";
             Program.operations.Add("+");
             Program.currentNumber = "";
         }
 
         private void Button_Subtract_Click(object sender, EventArgs e)
         {
-            if (Program.currentNumber == "")
+            if (Output.Text != "")
+            {
+                ContinueOperation();
+            }
+            if (Program.currentNumber == "" && Program.operations.Count == 0)
             {
                 Program.currentNumber = "0";
             }
+            else if (Program.currentNumber == "")
+            {
+                return;
+            }
             Program.numbers.Add(double.Parse(Program.currentNumber));
-            Input.Text += "-";
+            Input.Text += " - ";
             Program.operations.Add("-");
             Program.currentNumber = "";
         }
 
         private void Button_Multiply_Click(object sender, EventArgs e)
         {
+            if (Output.Text != "")
+            {
+                ContinueOperation();
+            }
             if (Program.currentNumber == "")
             {
                 return;
             }
             Program.numbers.Add(double.Parse(Program.currentNumber));
-            Input.Text += "x";
-            Program.operations.Add("*");
+            Input.Text += " x ";
+            Program.operations.Add("x");
             Program.currentNumber = "";
         }
 
         private void Button_Divide_Click(object sender, EventArgs e)
         {
+            if (Output.Text != "")
+            {
+                ContinueOperation();
+            }
             if (Program.currentNumber == "")
             {
                 return;
             }
             Program.numbers.Add(double.Parse(Program.currentNumber));
-            Input.Text += "/";
-            Program.operations.Add("/");
+            Input.Text += " ÷ ";
+            Program.operations.Add("÷");
             Program.currentNumber = "";
         }
 
+        private string lastOperation = "";
+        private string lastNumber = "";
         private void Button_Equals_Click(object sender, EventArgs e)
         {
+            if (Output.Text.Length > 0 && Program.numbers.Count != 0)
+            {
+                double result = Convert.ToDouble(Output.Text);
+                ClearCalculator();
+                Program.numbers.Add(result);
+                Program.currentNumber = lastNumber;
+                Program.operations.Add(lastOperation);
+                Input.Text = Program.CreateInputText() + Program.currentNumber;
+
+            }
+            if (Program.currentNumber == "" || Program.operations.Count == 0)
+            {
+                if (Program.numbers.Count == 0)
+                {
+                    lastNumber = Input.Text;
+                    Output.Text = Input.Text;
+                }
+                return;
+            }
+            lastOperation = Program.operations[Program.operations.Count - 1];
+            if (Program.currentNumber[Program.currentNumber.Length - 1] == '.')
+            {
+                Input.Text = Input.Text + "0";
+            }
             Program.numbers.Add(double.Parse(Program.currentNumber));
+            lastNumber = Program.currentNumber;
             Program.currentNumber = "";
             Program.Calculate();
             Output.Text = Program.numbers[0].ToString();
         }
 
         private void Button_AC_Click(object sender, EventArgs e)
+        {
+            ClearCalculator();
+        }
+
+        private void ClearCalculator()
         {
             Program.currentNumber = "";
             Program.numbers.Clear();
@@ -256,10 +350,26 @@ namespace Calculator
 
         private void Button_Undo_Click(object sender, EventArgs e)
         {
-            if (Program.currentNumber != "")
+            if (Program.currentNumber != "" && Program.operations.Count > 0)
             {
-                Program.currentNumber = Program.currentNumber.Substring(0, Program.currentNumber.Length - 1);
-                Input.Text = Input.Text.Substring(0, Input.Text.Length - 1);
+                Program.currentNumber = Program.currentNumber.Remove(Program.currentNumber.Length - 1);
+                Input.Text = Program.CreateInputText() + Program.currentNumber;
+                return;
+            }
+            else if (Program.operations.Count > 0)
+            {
+                Program.operations.RemoveAt(Program.operations.Count - 1);
+                Program.currentNumber = Program.numbers[Program.numbers.Count - 1].ToString();
+                Input.Text = Program.CreateInputText();
+                Program.numbers.RemoveAt(Program.numbers.Count - 1);
+                return;
+            }
+            else if (Input.Text.Length > 0)
+            {
+                Program.currentNumber = Input.Text;
+                Program.currentNumber = Program.currentNumber.Remove(Program.currentNumber.Length - 1);
+                Input.Text = Program.currentNumber;
+                return;
             }
         }
 
@@ -287,6 +397,14 @@ namespace Calculator
             }
             Program.currentNumber = (double.Parse(Program.currentNumber) * -1).ToString();
             Input.Text = Program.CreateInputText() + Program.currentNumber;
+        }
+
+        private void ContinueOperation()
+        {
+            string tempNumber = Output.Text;
+            ClearCalculator();
+            Program.currentNumber = tempNumber;
+            Input.Text = Program.currentNumber;
         }
     }
 }

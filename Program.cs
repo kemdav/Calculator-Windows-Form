@@ -16,8 +16,6 @@ namespace Calculator
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Main_Window());
         }
@@ -29,7 +27,7 @@ namespace Calculator
                 output += numbers[i];
                 if (i < operations.Count)
                 {
-                    output += operations[i];
+                    output += " " + operations[i] + " ";
                 }
             }
             return output;
@@ -42,22 +40,20 @@ namespace Calculator
                 return;
             }
 
-            for (int i = 0; i < operations.Count; i++)
+            for (int i = 0; i < numbers.Count; i++)
             {
                 for (int j = 0; j < operations.Count;j++)
                 {
-                    if (operations[j] == "*")
+                    if (operations[j] == "x")
                     {
-                        PerformOperation("*");
-                        break;
+                        PerformOperation("x");
                     }
                 }
                 for (int j = 0; j < operations.Count; j++)
                 {
-                    if (operations[j] == "/")
+                    if (operations[j] == "÷")
                     {
-                        PerformOperation("/");
-                        break;
+                        PerformOperation("÷");
                     }
                 }
                 for (int j = 0; j < operations.Count; j++)
@@ -65,7 +61,6 @@ namespace Calculator
                     if (operations[j] == "+")
                     {
                         PerformOperation("+");
-                        break;
                     }
                 }
                 for (int j = 0; j < operations.Count; j++)
@@ -73,7 +68,6 @@ namespace Calculator
                     if (operations[j] == "-")
                     {
                         PerformOperation("-");
-                        break;
                     }
                 }
             }
@@ -93,10 +87,10 @@ namespace Calculator
                 case "-":
                     result = firstNumber -= secondNUmber;
                     break;
-                case "*":
+                case "x":
                     result = firstNumber *= secondNUmber;
                     break;
-                case "/":
+                case "÷":
                     result = firstNumber /= secondNUmber;
                     break;
                 default:

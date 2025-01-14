@@ -69,5 +69,15 @@ namespace Calculator.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Squid_Game_Front_Man_Identity_Twist_Header {
+            get {
+                object obj = ResourceManager.GetObject("Squid-Game-Front-Man-Identity-Twist-Header", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

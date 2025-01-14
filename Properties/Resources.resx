@@ -121,4 +121,7 @@
   <data name="449754749_465597836106502_1459596463550953521_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\449754749_465597836106502_1459596463550953521_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Squid-Game-Front-Man-Identity-Twist-Header" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Squid-Game-Front-Man-Identity-Twist-Header.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
