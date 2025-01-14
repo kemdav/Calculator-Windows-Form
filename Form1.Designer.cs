@@ -167,6 +167,7 @@
             Button_ChangeSign.TabIndex = 11;
             Button_ChangeSign.Text = "+/-";
             Button_ChangeSign.UseVisualStyleBackColor = true;
+            Button_ChangeSign.Click += Button_ChangeSign_Click;
             // 
             // Button_0
             // 
@@ -186,6 +187,7 @@
             Button_Period.TabIndex = 14;
             Button_Period.Text = ".";
             Button_Period.UseVisualStyleBackColor = true;
+            Button_Period.Click += Button_Period_Click;
             // 
             // Button_Undo
             // 

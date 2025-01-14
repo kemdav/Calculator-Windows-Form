@@ -191,6 +191,10 @@ namespace Calculator
 
         private void Button_Addition_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "")
+            {
+                return;
+            }
             Program.numbers.Add(double.Parse(Program.currentNumber));
             Input.Text += "+";
             Program.operations.Add("+");
@@ -199,6 +203,10 @@ namespace Calculator
 
         private void Button_Subtract_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "")
+            {
+                Program.currentNumber = "0";
+            }
             Program.numbers.Add(double.Parse(Program.currentNumber));
             Input.Text += "-";
             Program.operations.Add("-");
@@ -207,6 +215,10 @@ namespace Calculator
 
         private void Button_Multiply_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "")
+            {
+                return;
+            }
             Program.numbers.Add(double.Parse(Program.currentNumber));
             Input.Text += "x";
             Program.operations.Add("*");
@@ -215,15 +227,14 @@ namespace Calculator
 
         private void Button_Divide_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber == "")
+            {
+                return;
+            }
             Program.numbers.Add(double.Parse(Program.currentNumber));
             Input.Text += "/";
             Program.operations.Add("/");
             Program.currentNumber = "";
-        }
-
-        private void Button_Percent_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Button_Equals_Click(object sender, EventArgs e)
@@ -245,7 +256,37 @@ namespace Calculator
 
         private void Button_Undo_Click(object sender, EventArgs e)
         {
+            if (Program.currentNumber != "")
+            {
+                Program.currentNumber = Program.currentNumber.Substring(0, Program.currentNumber.Length - 1);
+                Input.Text = Input.Text.Substring(0, Input.Text.Length - 1);
+            }
+        }
 
+        private void Button_Period_Click(object sender, EventArgs e)
+        {
+            if (Program.currentNumber.Contains("."))
+            {
+                return;
+            }
+            if (Program.currentNumber == "")
+            {
+                Program.currentNumber = "0.";
+                Input.Text = "0.";
+                return;
+            }
+            Program.currentNumber += ".";
+            Input.Text += ".";
+        }
+
+        private void Button_ChangeSign_Click(object sender, EventArgs e)
+        {
+            if (Program.currentNumber == "")
+            {
+                return;
+            }
+            Program.currentNumber = (double.Parse(Program.currentNumber) * -1).ToString();
+            Input.Text = Program.CreateInputText() + Program.currentNumber;
         }
     }
 }

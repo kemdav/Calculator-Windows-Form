@@ -21,6 +21,19 @@ namespace Calculator
             ApplicationConfiguration.Initialize();
             Application.Run(new Main_Window());
         }
+        public static string CreateInputText()
+        {
+            string output = "";
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                output += numbers[i];
+                if (i < operations.Count)
+                {
+                    output += operations[i];
+                }
+            }
+            return output;
+        }
 
         public static void Calculate()
         {
