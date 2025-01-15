@@ -12,6 +12,7 @@ namespace Calculator
         public static List<double> numbers = new List<double>();
         public static List<string> operations = new List<string>();
         public static string currentNumber = "";
+        public static bool isUndefined = false;
 
         [STAThread]
         static void Main()
@@ -92,6 +93,10 @@ namespace Calculator
                     break;
                 case "÷":
                     result = firstNumber /= secondNUmber;
+                    if (secondNUmber == 0)
+                    {
+                        isUndefined = true;
+                    }
                     break;
                 default:
                     result = 0;

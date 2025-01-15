@@ -272,6 +272,10 @@ namespace Calculator
         private string lastNumber = "";
         private void Button_Equals_Click(object sender, EventArgs e)
         {
+            if (Program.isUndefined == true)
+            {
+                return;
+            }
             if (Output.Text.Length > 0 && Program.numbers.Count != 0)
             {
                 double result = Convert.ToDouble(Output.Text);
@@ -300,7 +304,12 @@ namespace Calculator
             lastNumber = Program.currentNumber;
             Program.currentNumber = "";
             Program.Calculate();
-            Output.Text = Program.numbers[0].ToString();
+            if (Program.isUndefined == true)
+            {
+                Output.Text = "Undefined";
+                return;
+            }
+            Output.Text = Math.Round(Program.numbers[0], 5).ToString();
         }
 
         private void Button_AC_Click(object sender, EventArgs e)
@@ -315,10 +324,15 @@ namespace Calculator
             Program.operations.Clear();
             Input.Text = "";
             Output.Text = "";
+            Program.isUndefined = false;
         }
 
         private void Button_Undo_Click(object sender, EventArgs e)
         {
+            if (Output.Text.Length > 0)
+            {
+                return;
+            }    
             if (Program.currentNumber != "" && Program.operations.Count > 0)
             {
                 Program.currentNumber = Program.currentNumber.Remove(Program.currentNumber.Length - 1);
