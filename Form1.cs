@@ -379,7 +379,7 @@ namespace Calculator
 
         private void Button_ChangeSign_Click(object sender, EventArgs e)
         {
-            if (Program.currentNumber == "")
+            if (Program.currentNumber == "" || Program.currentNumber[0] == '0')
             {
                 return;
             }

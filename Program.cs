@@ -49,10 +49,7 @@ namespace Calculator
                     {
                         PerformOperation("x");
                     }
-                }
-                for (int j = 0; j < operations.Count; j++)
-                {
-                    if (operations[j] == "÷")
+                    else if (operations[j] == "÷")
                     {
                         PerformOperation("÷");
                     }
@@ -63,10 +60,7 @@ namespace Calculator
                     {
                         PerformOperation("+");
                     }
-                }
-                for (int j = 0; j < operations.Count; j++)
-                {
-                    if (operations[j] == "-")
+                    else if (operations[j] == "-")
                     {
                         PerformOperation("-");
                     }
