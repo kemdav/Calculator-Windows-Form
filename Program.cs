@@ -30,6 +30,7 @@ namespace Calculator
                 {
                     output += " " + operations[i] + " ";
                 }
+                // Hello
             }
             return output;
         }
